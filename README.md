@@ -1,8 +1,8 @@
 About API Reader
-----------------
+================
 
 Using API Reader
-================
+----------------
 
 First, enter a JSON object to search.
 
@@ -13,7 +13,7 @@ You will get back a series the brackets (keys and indices) that you need to refe
 If there is more than one occurrence of the value in the data structure (including key names), you will get a multiline return. Each line of the search results is a different reference path.
 
 Possible Uses
-=============
+-------------
 
 You can use the results of the search to:
 
@@ -22,7 +22,7 @@ You can use the results of the search to:
 + Guess and check - practice your JSON reading skills: figure out the path by hand first, then run this app to confirm.
 
 Background
-==========
+----------
 
 As Junior Developers, we set out to learn about compound data structures.
 
@@ -33,7 +33,7 @@ When you want to identify a specific value inside of these compound structures, 
 Bascially, we wanted to create an easier way to get the "path" of any value inside a compound data structure, so we could reference it in our code.
 
 Problem Statement and Our Approach to Solving
-=============================================
+---------------------------------------------
 
 **Problem:** Given a value and a compound data structure, return the position in the strucure, formatted so you can referrence it in your code.
 
