@@ -1,0 +1,18 @@
+<h1>Enter a New Data Set</h1>
+
+<div class="error">
+<%if !@errors.empty?%>
+  <% @errors.each do |message| %>
+  <p><%=message%></p>
+  <%end%>
+<%end%>
+</div>
+
+<form action="/data/new" method="post">
+  <div>
+    <label for="json_data">Copy and paste your JSON data to search:</label><br>
+    <textarea name="json_data" rows="20" cols="50"></textarea>
+  </div>
+  <input type="submit" value="Submit"/>
+</form>
+

@@ -1,0 +1,19 @@
+.search-box {
+  margin-top: 50px;
+}
+
+.error {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+nav li {
+
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+}
+
+nav ul {
+  padding-left: 0px;
+}

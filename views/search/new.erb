@@ -1,0 +1,16 @@
+<h1>Find a Search Value in Your Data Set</h1>
+
+
+<div class="error">
+<%if !@errors.empty?%>
+  <% @errors.each do |message| %>
+  <p><%=message%></p>
+  <%end%>
+<%end%>
+</div>
+<form action="/new" method="post">
+  <label for="query">Enter a search value to find in the current data set: </label>
+  <input type="text" name="query" id="query"/>
+  <input type="submit" value="Search"/>
+</form>
+

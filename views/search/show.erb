@@ -1,0 +1,16 @@
+<h2>Path(s) to access "<%= @search_term %>":</h2>
+<%if @results == ""%>
+  <p>We can't find your search term in this data structure.</p>
+<%end%>
+
+<% @results.each do |result| %>
+  <%= result %><br/>
+<%end%>
+
+<div class="search-box">
+  <form action="/new" method="post">
+      <label for="query">Search again:  </label>
+      <input type="text" name="query" id="query"/>
+    <input type="submit" value="Search"/>
+  </form>
+</div>
