@@ -1,5 +1,17 @@
-<h1>Current Data Structure</h1>
+<h1>Find a Search Value in Your Data Set</h1>
 
-<p>The JSON object below is currently <a href="/search">searchable</a>. If you would like to search a new data structure, you can <a href="/data/new">enter it here</a>.</p>
+<div class="error">
+<%if !@errors.empty?%>
+  <% @errors.each do |message| %>
+  <p><%=message%></p>
+  <%end%>
+<%end%>
+</div>
+<form action="/data" method="post">
+  <label for="query">Enter a search value to find in the current data set: </label>
+  <input type="text" name="query" id="query"/>
+  <input type="submit" value="Search"/>
+</form>
 
+<h2>Current Data Set</h2>
 <code><%= @json_data %></code>

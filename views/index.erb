@@ -1,7 +1,19 @@
-<h1>Welcome to API Reader</h1>
+<h1>Datastroyer</h1>
 
-<div>
-<h2><a href="/data/new">Add a Data Structure</a> or <a href="/search">Search Your Current Data Set</a></h2>
+<h2>Enter a New Data Set</h2>
+
+<div class="error">
+<%if !@errors.empty?%>
+  <% @errors.each do |message| %>
+  <p><%=message%></p>
+  <%end%>
+<%end%>
 </div>
 
-<div>
+<form action="/" method="post">
+  <div>
+    <label for="json_data">Copy and paste your JSON data to search:</label><br>
+    <textarea name="json_data" rows="20" cols="50"></textarea>
+  </div>
+  <input type="submit" value="Submit"/>
+</form>

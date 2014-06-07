@@ -74,9 +74,9 @@ end
 #       ROUTES          #
 #########################
 
-get '/' do
-  erb :index
-end
+# get '/' do
+#   erb :index
+# end
 
 get '/about' do
   erb :about
@@ -91,7 +91,7 @@ end
 # USER SEARCH INPUT #
 #####################
 
-post '/new' do
+post '/data' do
   search_term = params[:query]
   @errors = []
   if search_term == ""
@@ -115,25 +115,26 @@ end
 #  USER DATA INPUT  #
 #####################
 
-get '/data/new' do
+get '/' do
   session.destroy
   @errors = []
   @json_data = json_data
-  erb :'data/new'
+  erb :index
 end
 
-post '/data/new' do
+post '/' do
   @errors = []
   if valid_json?(params[:json_data])
     session[:json_data] = params[:json_data]
     redirect '/data'
   else
     @errors << "Please enter a valid JSON object."
-    erb :'data/new'
+    erb :index
   end
 end
 
 get '/data' do
+  @errors = []
   @json_data = json_data
   erb :'data/show'
 end
