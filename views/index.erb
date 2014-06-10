@@ -1,6 +1,4 @@
-<h1>Datastroyer</h1>
-
-<h2>Enter a New Data Set</h2>
+<h3>Enter a New Data Set</h3>
 
 <div class="error">
 <%if !@errors.empty?%>
@@ -13,9 +11,9 @@
 <form action="/" method="post">
   <div>
     <label for="json_data">Copy and paste your JSON data to search:</label><br>
-    <textarea name="json_data" rows="20" cols="50"></textarea>
+    <textarea class="field span8" name="json_data" rows="12"></textarea>
   </div>
-  <input type="submit" value="Submit"/>
+  <input type="submit" class="btn" value="Submit"/>
 </form>
 
 <p>No data set? <a href="/data">Try a sample search</a>.</p>

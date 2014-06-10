@@ -1,4 +1,4 @@
-<h1>Find a Search Value in Your Data Set</h1>
+<h3>Find a Search Value in Your Data Set</h3>
 
 <div class="error">
 <%if !@errors.empty?%>
@@ -7,11 +7,17 @@
   <%end%>
 <%end%>
 </div>
-<form action="/data" method="post">
-  <label for="query">Enter a search value to find in the current data set: </label>
-  <input type="text" name="query" id="query"/>
-  <input type="submit" value="Search"/>
+<form action="/new" method="post">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="query">Enter a search value to find in the current data set: </label>
+      <input type="text" name="query" id="query"/>
+    </div>
+    <div class="col-md-2">
+      <input type="button" class="btn" value="Search"/>
+    </div>
+  </div>
 </form>
 
-<h2>Current Data Set</h2>
-<code><%= @json_data %></code>
+<h3>Current Data Set</h3>
+<pre><code class="prettyprint lang-ruby"><%= @json_data %></code></pre>

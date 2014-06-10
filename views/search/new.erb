@@ -1,4 +1,4 @@
-<h1>Find a Search Value in Your Data Set</h1>
+<h3>Find a Search Value in Your Data Set</h3>
 
 <div class="error">
 <%if !@errors.empty?%>
@@ -7,9 +7,15 @@
   <%end%>
 <%end%>
 </div>
+<div class="row">
 <form action="/new" method="post">
-  <label for="query">Enter a search value to find in the current data set: </label>
-  <input type="text" name="query" id="query"/>
-  <input type="submit" value="Search"/>
+    <div class="col-md-5">
+      <label for="query">Enter a search value to find in the current data set: </label>
+      <input type="text" name="query" id="query" class="input-bx"/>
+    </div>
+    <div class="col-md-5">
+      <input type="button" class="btn" value="Search"/>
+    </div>
 </form>
+</div>
 

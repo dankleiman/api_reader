@@ -1,0 +1,80 @@
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  color: white;
+  font-family: Merriweather;
+  background-image: url("/img/vortex.jpg");
+  background-size: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+a {
+  color: #FFFB73;
+}
+
+a:hover {
+  color: #A2EF00;
+  text-decoration: none;
+}
+
+.content-con {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background: rgba(21, 0, 35, .75);
+  color: white;
+  text-align: center;
+  height: 100%;
+  min-height: 100%;
+}
+
+.navbar {
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #210036;
+  border-bottom: solid #FFFB73;
+}
+
+.navbar > a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer {
+  text-align: center;
+  width: 100%;
+  background-color: #210036;
+  border-top: solid #FFFB73;
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+
+#title {
+  margin: 0 0 0 50px;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-family: Yanone Kaffeesatz;
+  font-size: 50pt;
+  color: #FFFB73;
+}
+
+#slogan {
+  margin-left: 140px;
+  text-align: left;
+  margin-bottom: 0;
+  font-family: Yanone Kaffeesatz;
+  padding-bottom: 5px;
+  font-size: 14pt;
+}
+
+#json {
+  background: white;
+  color: black;
+  border-radius: 10px;
+}

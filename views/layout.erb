@@ -3,24 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>Datastroyer</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   </head>
   <body>
-  <!-- <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/data/new">New Data Set</a></li>
-      <li><a href="/search">Search</a></li>
-      <li><a href="/data">View Data Set</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-
-  </nav> -->
-  <div class="content-div">
-    <%= yield %>
-  </div>
-  <footer>
-    <p>By <a href="https://github.com/craigmcginley/">Craig McGinley</a> and <a href="https://github.com/dankleiman">Dan Kleiman</a> -- <a href="/about">About Datastroyer</a>
-  </footer>
+    <div class="container">
+      <div class="content-con">
+        <header class>
+            <div class="navbar">
+              <a href="/"><h1 id="title">Datastroyer</h1></a>
+              <p id="slogan">What's at the center of your data?</p>
+            </div>
+        </header>
+        <%= yield %>
+        <div class="footer">
+          <p>By <a href="https://github.com/craigmcginley/">Craig McGinley</a> and <a href="https://github.com/dankleiman">Dan Kleiman</a> -- <a href="/about">About Datastroyer</a></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
