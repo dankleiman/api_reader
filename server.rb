@@ -2,7 +2,6 @@ require 'json'
 require 'net/http'
 require 'sinatra'
 require 'uri'
-require 'pry'
 
 use Rack::Session::Pool
 
