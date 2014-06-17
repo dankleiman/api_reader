@@ -2,8 +2,9 @@ require 'json'
 require 'net/http'
 require 'sinatra'
 require 'uri'
+require 'pry'
 
-enable :sessions
+use Rack::Session::Pool
 
 ######################
 #    SET SAMPLE DATA  #
@@ -115,6 +116,7 @@ end
 #  USER DATA INPUT  #
 #####################
 
+
 get '/' do
   session.destroy
   @errors = []
@@ -126,6 +128,7 @@ post '/' do
   @errors = []
   if valid_json?(params[:json_data])
     session[:json_data] = params[:json_data]
+    puts "SESSION: #{session[:json_data]}"
     redirect '/data'
   else
     @errors << "Please enter a valid JSON object."
