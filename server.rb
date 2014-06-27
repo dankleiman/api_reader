@@ -23,6 +23,9 @@ end
 #     SEARCH METHOD       #
 ###########################
 
+
+# This is the web app version of our method, where end values are converted to string while comparing.
+
 def path_finder(value, structure, current_path = "", paths = [])
 
   if value.class == String && structure.class == String
@@ -76,17 +79,8 @@ end
 #       ROUTES          #
 #########################
 
-# get '/' do
-#   erb :index
-# end
-
 get '/about' do
   erb :about
-end
-get '/search' do
-  @json_data = json_data
-  @errors = []
-  erb :'search/new'
 end
 
 #####################
