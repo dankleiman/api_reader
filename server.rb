@@ -3,6 +3,8 @@ require 'net/http'
 require 'sinatra'
 require 'uri'
 
+require 'pry'
+
 use Rack::Session::Pool
 
 ######################
@@ -27,15 +29,15 @@ def path_finder(value, structure, current_path = "", paths = [])
     if structure =~ /\b#{Regexp.quote(value)}\b/i
       paths << current_path
     end
-  elsif value == structure
+  elsif value == structure.to_s
     paths << current_path
-  elsif structure.is_a?(Array)
+  elsif structure.class <= Array
     structure.each_with_index do |element, index|
       if path_finder(value, element, current_path + "[#{index}]") != nil
         paths << path_finder(value, element, current_path + "[#{index}]")
       end
     end
-  elsif structure.is_a?(Hash)
+  elsif structure.class <= Hash
     structure.each do |key, element|
       if key.class == Symbol
         if path_finder(value, key, current_path + "[:#{key}]") != nil
@@ -88,30 +90,6 @@ get '/search' do
 end
 
 #####################
-# USER SEARCH INPUT #
-#####################
-
-post '/data' do
-  search_term = params[:query]
-  @errors = []
-  if search_term == ""
-    @errors << "Please enter a search term."
-    erb :'search/new'
-  else
-  search_url = URI.encode("/results/#{search_term}")
-  redirect search_url
-  end
-end
-
-get '/results/:query' do
-  @search_term = params[:query]
-  @results = path_finder(@search_term, json_data)
-  @errors = []
-  erb :'search/show'
-end
-
-
-#####################
 #  USER DATA INPUT  #
 #####################
 
@@ -141,7 +119,28 @@ get '/data' do
   erb :'data/show'
 end
 
+#####################
+# USER SEARCH INPUT #
+#####################
 
+post '/data' do
+  search_term = params[:query]
+  @errors = []
+  if search_term == ""
+    @errors << "Please enter a search term."
+    erb :'search/new'
+  else
+  search_url = URI.encode("/results?q=#{search_term}")
+  redirect search_url
+  end
+end
+
+get '/results' do
+  @search_term = params[:q]
+  @results = path_finder(@search_term, json_data)
+  @errors = []
+  erb :'search/show'
+end
 
 
 
