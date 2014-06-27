@@ -22,21 +22,24 @@ end
 #     SEARCH METHOD       #
 ###########################
 
+
+# This is the web app version of our method, where end values are converted to string while comparing.
+
 def path_finder(value, structure, current_path = "", paths = [])
 
   if value.class == String && structure.class == String
     if structure =~ /\b#{Regexp.quote(value)}\b/i
       paths << current_path
     end
-  elsif value == structure
+  elsif value == structure.to_s
     paths << current_path
-  elsif structure.is_a?(Array)
+  elsif structure.class <= Array
     structure.each_with_index do |element, index|
       if path_finder(value, element, current_path + "[#{index}]") != nil
         paths << path_finder(value, element, current_path + "[#{index}]")
       end
     end
-  elsif structure.is_a?(Hash)
+  elsif structure.class <= Hash
     structure.each do |key, element|
       if key.class == Symbol
         if path_finder(value, key, current_path + "[:#{key}]") != nil
@@ -75,17 +78,8 @@ end
 #       ROUTES          #
 #########################
 
-# get '/' do
-#   erb :index
-# end
-
 get '/about' do
   erb :about
-end
-get '/search' do
-  @json_data = json_data
-  @errors = []
-  erb :'search/new'
 end
 
 #####################
@@ -109,6 +103,12 @@ get '/results/:query' do
   @results = path_finder(@search_term, json_data)
   @errors = []
   erb :'search/show'
+end
+
+get '/search' do
+  @json_data = json_data
+  @errors = []
+  erb :'search/new'
 end
 
 
